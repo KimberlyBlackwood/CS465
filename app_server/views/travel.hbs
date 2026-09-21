@@ -6,10 +6,18 @@
   </head>
   <body>
     <h1>{{title}}</h1>
-    <p>Welcome to the Travel page for Travlr Getaways.</p>
+
+    <ul id="sites">
+      {{#each trips}}
+        <li>
+          <img src="images/{{this.image}}" alt="{{this.name}}">
+          <h2>{{this.name}}</h2>
+          <p>{{this.description}}</p>
+        </li>
+      {{/each}}
+    </ul>
+
   </body>
 </html>
 
-
-
-
+        
