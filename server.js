@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+require('./app_api/models/db');  
 const app = express();
 
 // Set up Handlebars view engine
@@ -31,12 +32,14 @@ app.use('/', newsRouter);
 const contactRouter = require('./app_server/routes/contact');
 app.use('/', contactRouter);
 
+/* ============================
+   Module 4 API ROUTES (JSON)
+   ============================ */
+const apiRoutes = require('./app_api/routes/index');
+app.use('/api', apiRoutes);
+
 // Start server
 app.listen(3000, () => {
   console.log('Server running on http://localhost:3000');
 });
-
-
-
-
 

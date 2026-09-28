@@ -1,14 +1,24 @@
-const fs = require('fs');
-const trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
+const axios = require('axios');
 
-const travel = (req, res) => {
-  res.render('travel', { 
-    title: 'Travlr Getaways - Travel',
-    trips
-  });
+const travelList = async (req, res) => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/trips');
+    const trips = response.data;
+
+    res.render('travel', { 
+      title: 'Travlr Getaways - Travel',
+      trips
+    });
+  } catch (err) {
+    console.log('API error:', err);
+    res.render('travel', { 
+      title: 'Travlr Getaways - Travel',
+      trips: []
+    });
+  }
 };
 
 module.exports = {
-  travel
+  travelList
 };
 
