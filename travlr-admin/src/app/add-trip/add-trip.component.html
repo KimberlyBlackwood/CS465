@@ -1,0 +1,36 @@
+<div class="add-trip">
+  <h2>Add New Trip</h2>
+
+  <form (ngSubmit)="onSubmit()">
+
+    <label>Code:</label>
+    <input type="text" [(ngModel)]="trip.code" name="code" required>
+
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="trip.name" name="name" required>
+
+    <label>Description:</label>
+    <textarea [(ngModel)]="trip.description" name="description" required></textarea>
+
+    <label>Resort:</label>
+    <input type="text" [(ngModel)]="trip.resort" name="resort" required>
+
+    <label>Length (days):</label>
+    <input type="number" [(ngModel)]="trip.length" name="length" required>
+
+    <label>Start Date:</label>
+    <input type="date" [(ngModel)]="trip.start" name="start" required>
+
+    <label>Price per Person:</label>
+    <input type="number" [(ngModel)]="trip.perPerson" name="perPerson" required>
+
+    <label>Image filename:</label>
+    <input type="text" [(ngModel)]="trip.image" name="image" required>
+
+    <button type="submit">Add Trip</button>
+  </form>
+
+  <p>{{ message }}</p>
+
+  <a routerLink="/trips">Back to Trips</a>
+</div>

@@ -1,0 +1,30 @@
+<h2>Available Trips</h2>
+
+<!-- Add Trip link -->
+<p>
+  <a routerLink="/add-trip">Add New Trip</a>
+</p>
+
+<div *ngIf="trips.length === 0">
+  <p>No trips loaded.</p>
+</div>
+
+<div *ngFor="let trip of trips" class="trip-card" 
+     style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+
+  <!-- Make the trip name clickable -->
+  <h3>
+    <a [routerLink]="['/trips', trip.code]">
+      {{ trip.name }}
+    </a>
+  </h3>
+
+  <p>{{ trip.description }}</p>
+
+  <p><strong>Resort:</strong> {{ trip.resort }}</p>
+  <p><strong>Length:</strong> {{ trip.length }} days</p>
+  <p><strong>Start Date:</strong> {{ trip.start | date }}</p>
+  <p><strong>Price per Person:</strong> ${{ trip.perPerson }}</p>
+
+  <img src="images/{{ trip.image }}" alt="{{ trip.name }}" width="200">
+</div>

@@ -1,0 +1,28 @@
+.trip-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.trip-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+  background-color: #fafafa;
+}
+
+.trip-card h3 a {
+  text-decoration: none;
+  color: #007acc;
+}
+
+.trip-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.trip-card img {
+  margin-top: 10px;
+  border-radius: 6px;
+}

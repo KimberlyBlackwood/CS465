@@ -1,0 +1,31 @@
+.trip-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.trip-detail h2 {
+  margin-bottom: 12px;
+}
+
+.trip-detail img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.trip-detail p {
+  margin: 6px 0;
+}
+
+.trip-detail a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007acc;
+}
+
+.trip-detail a:hover {
+  text-decoration: underline;
+}

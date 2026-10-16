@@ -1,0 +1,25 @@
+<div class="trip-detail" *ngIf="trip">
+  <h2>{{ trip.name }}</h2>
+
+  <img [src]="'/assets/images/' + trip.image" alt="{{ trip.name }}" />
+
+  <p>{{ trip.description }}</p>
+
+  <p><strong>Resort:</strong> {{ trip.resort }}</p>
+  <p><strong>Length:</strong> {{ trip.length }} days</p>
+  <p><strong>Price:</strong> ${{ trip.perPerson }}</p>
+
+  <p><strong>Start Date:</strong> {{ trip.start | date }}</p>
+
+  <a routerLink="/trips">Back to Trips</a>
+</div>
+
+<div *ngIf="!trip && !errorMessage">
+  Loading...
+</div>
+
+<div *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+
+
