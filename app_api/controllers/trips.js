@@ -22,8 +22,41 @@ const tripsFindByCode = async (req, res) => {
   }
 };
 
-module.exports = {
-  tripsList,
-  tripsFindByCode
+const tripsUpdateTrip = async (req, res) => {
+  try {
+    const trip = await Trip.findOneAndUpdate(
+      { code: req.params.tripCode },
+      req.body,
+      { new: true }
+    ).exec();
+
+    if (!trip) {
+      return res.status(404).json({ message: 'Trip not found' });
+    }
+
+    res.status(200).json(trip);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 };
 
+const tripsDeleteTrip = async (req, res) => {
+  try {
+    const trip = await Trip.findOneAndDelete({ code: req.params.tripCode }).exec();
+
+    if (!trip) {
+      return res.status(404).json({ message: 'Trip not found' });
+    }
+
+    res.status(204).json(null);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+module.exports = {
+  tripsList,
+  tripsFindByCode,
+  tripsUpdateTrip,
+  tripsDeleteTrip
+};

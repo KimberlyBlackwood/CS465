@@ -41,3 +41,5 @@ process.on('SIGINT', () => {
 
 // Bring in Schemas & Models
 require('./trips');
+require('./user')
+
